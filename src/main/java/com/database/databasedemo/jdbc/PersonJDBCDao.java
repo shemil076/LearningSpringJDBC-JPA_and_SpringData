@@ -29,4 +29,8 @@ public class PersonJDBCDao {
         return jdbcTemplate.queryForObject("select * from person where location =? ",new Object[]{ location }, new BeanPropertyRowMapper(Person.class));
 
     }
+
+    public int deleteByID(int id) {
+        return jdbcTemplate.update("delete  from person where id =? ",new Object[]{ id });
+    }
 }
